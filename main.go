@@ -1,8 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+)
 
 func main() {
-	fmt.Println("vim-go")
+	files, err := filepath.Glob("*/*.md")
+	if err != nil {
+		os.Exit(1)
+	}
 
+	for _, f := range files {
+		fmt.Println(f)
+	}
 }
